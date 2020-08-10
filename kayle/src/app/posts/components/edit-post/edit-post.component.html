@@ -1,0 +1,35 @@
+<div class="edit-status-container">
+  <p class="title">Who should see this?</p>
+
+  <ul class="edit-status-list">
+    <li class="edit-status-option">
+      <a class="edit-status-button" (click)="changeStatusToPublic()">
+        <div class="checkmark-container">
+          <img *ngIf="post.public" src="assets/images/check.svg" alt="Checkmark" />
+        </div>
+        <div>
+          <div class="button-header-container">
+            <p>Public</p>
+            <img class="icon" src="assets/images/public.svg" alt="A globe" />
+          </div>
+          <p class="status-explanation-container">Anyone can see this post</p>
+        </div>
+      </a>
+    </li>
+
+    <li class="edit-status-option">
+      <a class="edit-status-button" (click)="changeStatusToPrivate()">
+        <div class="checkmark-container">
+          <img *ngIf="!post.public" src="assets/images/check.svg" alt="Checkmark" />
+        </div>
+        <div>
+          <div class="button-header-container">
+            <p>Private</p>
+            <img class="icon" src="assets/images/private.svg" alt="Followers icon" />
+          </div>
+          <p class="status-explanation-container">Only your followers</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

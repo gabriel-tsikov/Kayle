@@ -1,0 +1,149 @@
+<aside>
+  <input type="checkbox" id="check" [checked]="isHamburgerMenuChecked" />
+  <label (click)="toggleHamburgerMenu($event)" for="check" class="check-btn">
+    <svg
+      #svgHamburger
+      class="icon-ham"
+      viewBox="0 0 100 100"
+      width="80"
+      onclick="this.classList.toggle('active')"
+    >
+      <path
+        class="line top"
+        d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
+      />
+      <path class="line middle" d="m 30,50 h 40" />
+      <path
+        class="line bottom"
+        d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
+      />
+    </svg>
+    <span class="hamburger-holder"></span>
+  </label>
+
+  <nav class="nav-bar" [ngClass]="{'nav-bar-compact': shouldSwitchToCompactMode}">
+    <div class="logo-holder">
+      <a [routerLink]="['/']" class="block">
+        <img src="./assets/images/logo.svg" alt="Kayle Logo" />
+      </a>
+    </div>
+
+    <div *ngIf="loggedUser$ | async as loggedUser" [ngClass]="{'avatar-holder': isUserLogged}">
+      <app-avatar
+        class="avatar"
+        [width]="50"
+        [height]="50"
+        [avatar]="loggedUser.avatar"
+        [username]="loggedUser.username"
+      ></app-avatar>
+    </div>
+
+    <ul class="nav">
+      <li class="nav-item">
+        <a
+          class="nav-button"
+          [routerLink]="['/home']"
+          [routerLinkActive]="['active']"
+          title="Home"
+        >
+          <div class="icon-wrap">
+            <img
+              class="icon"
+              title="Home"
+              src="./assets/images/home.svg"
+              alt="Home"
+            />
+            <span class="icon-title">Home</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="isUserLogged">
+        <a class="nav-button" (click)="openCreatePostForm()" title="Create a post">
+          <div class="icon-wrap">
+            <img class="icon" src="./assets/images/plus.svg" alt="Create post icon" />
+            <span class="icon-title">Create</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="!isUserLogged">
+        <a class="nav-button" (click)="openLoginForm()" title="Login">
+          <div class="icon-wrap">
+            <img
+              class="icon"
+              title="Login"
+              src="./assets/images/login.svg"
+              alt="Login"
+            />
+            <span class="icon-title">Login</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!isUserLogged">
+        <a
+          class="nav-button"
+          (click)="openRegisterForm()"
+          title="Register"
+        >
+          <div class="icon-wrap">
+            <img
+              class="icon"
+              title="Register"
+              src="./assets/images/register.svg"
+              alt="Register"
+            />
+            <span class="icon-title">Register</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isUserLogged">
+        <a
+          class="nav-button"
+          [routerLink]="['/dashboard']"
+          [routerLinkActive]="['active']"
+          title="Dashboard"
+        >
+          <div class="icon-wrap">
+            <img class="icon" src="./assets/images/dashboard.svg" alt="Dashboard icon" />
+            <span class="icon-title">Dashboard</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isUserLogged">
+        <a class="nav-button" (click)="logoutUser()" title="Logout">
+          <div class="icon-wrap">
+            <img class="icon" src="./assets/images/logout.svg" alt="Logout icon" />
+            <span class="icon-title">Logout</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <a
+      class="switch-container"
+      title="Change layout mode"
+      (click)="changeLayoutMode()"
+      [ngClass]="{'normal-mode-switch': !shouldSwitchToCompactMode}"
+    >
+      <img
+        *ngIf="!shouldSwitchToCompactMode"
+        src="assets/images/back-arrow.svg"
+        alt="Back arrow"
+        class="icon"
+      />
+      <img
+        *ngIf="shouldSwitchToCompactMode"
+        src="assets/images/forward-arrow.svg"
+        alt="Forward arrow"
+        class="icon"
+      />
+    </a>
+
+    <app-theme-toggle
+      class="toggle-container"
+      *ngIf="isUserLogged"
+      [ngClass]="{'compact-theme-toggle': shouldSwitchToCompactMode}"
+    ></app-theme-toggle>
+  </nav>
+</aside>

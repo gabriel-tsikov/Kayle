@@ -1,0 +1,69 @@
+@import '../../../../styles/abstracts/functions';
+@import '../../../../styles/abstracts/variables';
+
+.notification-bell-holder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .bell {
+    position: relative;
+    background-color: hsla(0, 0%, 100%, 0);
+    border: none;
+    padding: 5px;
+    outline: none;
+
+    .counter {
+      position: absolute;
+      top: 2px;
+      right: -8px;
+      background-color: var(--secondary);
+      color: var(--on-secondary);
+      @include text-setting('sm');
+      display: flex;
+      width: 25px;
+      height: 24px;
+      justify-content: center;
+      padding: 2px;
+      border-radius: 50%;
+    }
+  }
+
+  .notification-list {
+    display: flex;
+    position: absolute;
+    top: 65px;
+    right: -60px;
+    flex-direction: column;
+    width: 550px;
+    height: 250px;
+    overflow-y: scroll;
+    background-color: var(--primary);
+
+    .container-loader {
+      background-color: var(--shadow-primary);
+    }
+
+    .empty{
+     font-style: oblique;
+     font-size: 22px;
+      margin: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .notification-bell-holder {
+    .notification-list {
+      width: 450px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .notification-bell-holder {
+    .notification-list {
+      width: 300px;
+    }
+  }
+}

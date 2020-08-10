@@ -1,0 +1,63 @@
+<div class="comment-info">
+  <div class="author">
+    <app-avatar
+      [username]="comment.author.username"
+      [width]="40"
+      [height]="40"
+      [avatar]="comment.author.avatar"
+    ></app-avatar>
+
+    <span class="bold">{{ comment.author.username }}</span>
+
+    <div
+      *ngIf="loggedUsername === comment.author.username"
+      class="dotted-container"
+    >
+      <button class="dots-trigger">
+        <img
+          class="icon"
+          src="./assets/images/dotted-menu.svg"
+          alt="dotted menu"
+        />
+      </button>
+      <div class="dotted-menu">
+        <ul>
+          <li><a (click)="editClick()">Edit</a></li>
+          <li><a (click)="deleteClick()">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="faded small">
+    {{ lastUpdate | date: 'short' }}
+  </p>
+</div>
+
+<div>
+  <p *ngIf="isForEdit === false">
+    {{ comment.content | unescape | shorten: switchableMaxLength:'...' }}
+    <span
+      class="action-text"
+      *ngIf="isAllTextShown === false"
+      (click)="showAll()"
+    >
+      show more
+    </span>
+    <span
+      class="action-text"
+      *ngIf="isAllTextShown === true"
+      (click)="showLess()"
+    >
+      show less
+    </span>
+  </p>
+
+  <app-comment-form
+    [commentForEdit]="comment.content"
+    [postId]="postId"
+    [commentId]="comment.id"
+    (doneBeingEdited)="this.isForEdit = !$event"
+    *ngIf="isForEdit === true"
+  ></app-comment-form>
+</div>

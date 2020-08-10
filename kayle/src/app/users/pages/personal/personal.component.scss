@@ -1,0 +1,118 @@
+.profile-section {
+  .profile-options-container {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto 30px auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    word-break: break-word;
+    box-shadow: 0 0 15px 2px var(--shadow-primary);
+
+    .profile-stats-container {
+      margin: 0 auto;
+
+      .profile-title-container {
+        position: relative;
+        left: 15px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .main-title-container {
+          display: flex;
+          position: relative;
+          margin-bottom: 5px;
+        }
+
+        h1 {
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        .dotted-container {
+          position: relative;
+          height: 40px;
+          right: 30px;
+          padding: 0;
+          align-items: flex-end;
+          word-break: initial;
+        }
+
+        .follow-button-holder {
+          margin-left: 10px;
+
+          .follow-button {
+            width: 80px;
+            height: 30px;
+            font-size: 16px;
+            padding: 0;
+          }
+        }
+      }
+
+      .user-stats {
+        display: flex;
+        margin-top: 20px;
+
+        li {
+          padding: 0 16px;
+          text-align: center;
+        }
+
+        li:not(:last-child) {
+          border-right: 1px solid var(--on-primary);
+        }
+      }
+
+      .hidden-cogwheel {
+        left: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-section {
+    .profile-options-container {
+      .profile-stats-container {
+        .hidden-cogwheel {
+          flex-direction: column;
+
+          .follow-button-holder {
+            margin: 0 auto;
+          }
+        }
+
+        .user-stats {
+          display: block;
+
+          li:not(:last-child) {
+            margin-bottom: 5px;
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .profile-section {
+    .profile-options-container {
+      flex-direction: column;
+
+      .profile-stats-container {
+        .profile-title-container {
+          margin-top: 10px; 
+        }
+
+        .user-stats {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

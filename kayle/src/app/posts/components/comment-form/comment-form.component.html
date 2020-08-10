@@ -1,0 +1,41 @@
+<div class="unify">
+  <form
+    [formGroup]="commentForm"
+    class="comment-form-holder"
+    (ngSubmit)="commentSubmit()"
+  >
+    <app-avatar
+      *ngIf="!commentForEdit"
+      class="comment-avatar"
+      [username]="avatarInfo?.username"
+      [width]="40"
+      [height]="40"
+      [avatar]="avatarInfo?.avatar"
+    ></app-avatar>
+
+    <div class="combine flex">
+      <textarea
+        rows="1"
+        formControlName="comment"
+        class="comment-input"
+        type="textarea"
+        placeholder="Write a Comment"
+        autocomplete="off"
+      ></textarea>
+
+      <button type="button" class="emoji-button" (click)="togglePicker()">
+        <img class="icon" src="./assets/images/smile.svg" alt="emoji picker icon"/>
+      </button>
+      <button type="submit" class="bold">Post</button>
+    </div>
+  </form>
+
+  <emoji-mart
+    class="picker"
+    *ngIf="shouldOpenPicker"
+    set="apple"
+    title="Pick your emoji…"
+    emoji="point_up"
+    (emojiClick)="addEmoji($event)"
+  ></emoji-mart>
+</div>

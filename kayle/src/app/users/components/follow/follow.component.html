@@ -1,0 +1,25 @@
+<div class="follower-holder">
+  <div class="avatar-holder">
+    <app-avatar
+      [avatar]="follower.avatar"
+      [username]="follower.username"
+      [height]="40"
+      [width]="40"
+    ></app-avatar>
+    <p>{{follower.username}}</p>
+  </div>
+
+  <app-follow-button
+    *ngIf="isUserFollowed && !isFollowerTheLoggedUser"
+    (updateFollowedStatus)="isUserFollowed = $event"
+    [buttonType]="'unfollow'"
+    [username]="follower.username"
+  ></app-follow-button>
+
+  <app-follow-button
+    *ngIf="!isUserFollowed && !isFollowerTheLoggedUser"
+    [buttonType]="'follow'"
+    (updateFollowedStatus)="isUserFollowed = $event"
+    [username]="follower.username"
+  ></app-follow-button>
+</div>

@@ -1,0 +1,64 @@
+<section *ngIf="user" class="profile-section">
+  <div class="profile-options-container">
+    <app-avatar
+      [username]="username"
+      [width]="200"
+      [height]="200"
+      [avatar]="user.avatar"
+    ></app-avatar>
+
+
+    <div class="profile-stats-container">
+      <div class="profile-title-container" [ngClass]="{'hidden-cogwheel': !isInOwnProfile}">
+        <h1>{{ user.username }}</h1>
+        <div class="dotted-container" *ngIf="isInOwnProfile">
+          <button class="dots-trigger">
+            <img
+              class="icon"
+              src="./assets/images/settings.svg"
+              alt="dotted menu"
+            />
+          </button>
+          <div class="dotted-menu">
+            <ul>
+              <li><a (click)="openEditProfilePictureForm()">Edit</a></li>
+              <li><a (click)="deleteUserProfile(user)">Delete</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="follow-button-holder" *ngIf="shouldShowFollowButton">
+          <app-follow-button
+            *ngIf="!isUserFollowed"
+            (updateFollowedStatus)="updateUsersData()"
+            [username]="username"
+            [buttonType]="'follow'"
+          ></app-follow-button>
+
+          <app-follow-button
+            *ngIf="isUserFollowed"
+            (updateFollowedStatus)="updateUsersData()"
+            [username]="username"
+            [buttonType]="'unfollow'"
+          ></app-follow-button>
+        </div>
+      </div>
+
+      <ul class="user-stats">
+        <li>{{ user.postsCount }} Posts</li>
+        <li>
+          <a (click)="openFollowers()"> {{ user.followersCount }} Followers </a>
+        </li>
+        <li>
+          <a (click)="openFollowing()"> {{ user.followingCount }} Following </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <app-posts-list
+    #postsListComponent
+    [userId]="user.id"
+    [postsType]="'personal'"
+  ></app-posts-list>
+</section>

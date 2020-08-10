@@ -1,0 +1,31 @@
+<a
+  *ngIf="searchResult"
+  class="search-result-holder"
+  (mouseenter)="emitMouseEnter()"
+  (mouseleave)="emitMouseLeave()"
+  [routerLink]="[searchResult.username]"
+>
+  <app-avatar
+    [username]="searchResult.username"
+    [avatar]="searchResult.avatar"
+    [width]="40"
+    [height]="40"
+    [disableClick]="true"
+    class="search-result"
+  ></app-avatar>
+
+  <div class="search-info-holder">
+    <p>{{searchResult.username}}</p>
+  </div>
+</a>
+
+<div
+  *ngIf="noResultsFound"
+  class="search-result-holder no-matches"
+  (mouseenter)="emitMouseEnter()"
+  (mouseleave)="emitMouseLeave()"
+>
+  <p>
+    No matches found :(
+  </p>
+</div>

@@ -1,0 +1,24 @@
+<div
+  *ngIf="shouldRenderModal"
+  class="div-disable div-disable-modal"
+>
+  <div #containerModal class="container-modal">
+    <div
+      class="modal"
+      [ngStyle]="{'max-width.px': maxWidth, 'max-height.px': maxHeight,
+      'padding-right.px': paddingRight, 'padding-left.px': paddingLeft,
+      'padding-top.px': paddingTop, 'padding-bottom.px': paddingBottom}"
+      [ngClass]="{'widthAuto': autoWidth}"
+    >
+      <h1 class="header" *ngIf="headerText">{{headerText}}</h1>
+      <span
+        *ngIf="!shouldHideCloseButton"
+        class="button-modal-close"
+        (click)="closeModal()"
+      >&times;</span>
+      <ng-template appDynamicContent></ng-template>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="704d996b-b8c6-4ed9-9b87-6ce4fcef94b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/posts/components/edit-post-form/edit-post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/posts/components/edit-post-form/edit-post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/posts/components/edit-post-form/edit-post.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/posts/components/edit-post-form/edit-post.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/posts/components/edit-post-form/edit-post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/posts/components/edit-post-form/edit-post.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/posts/components/post/post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/posts/components/post/post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/posts/components/post/post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/posts/components/post/post.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/shared/components/image-compress/image-compress.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/shared/components/image-compress/image-compress.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/shared/components/image-compress/image-compress.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/shared/shared.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kayle/src/app/users/services/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kayle/src/app/users/services/users.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1clpSpN8V5mIIq5m3102LJbZ92m" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="704d996b-b8c6-4ed9-9b87-6ce4fcef94b0" name="Default Changelist" comment="" />
+      <created>1591113041492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591113041492</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1591943212581">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591943212581" />
+    <state x="342" y="140" key="new project wizard" timestamp="1591943272618">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1591943272618" />
+  </component>
+</project>

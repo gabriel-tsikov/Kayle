@@ -1,0 +1,268 @@
+#check {
+  display: none;
+}
+
+.nav-bar {
+  height: 100%;
+  width: 250px;
+  background-color: var(--primary);
+  box-shadow: 0 0 8px 3px var(--shadow-primary);
+  padding: 20px 0 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+
+  .avatar-holder {
+    height: 50px;
+    margin: 0 auto;
+  }
+
+  .logo-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    a {
+      width: 130px;
+
+      img {
+        height: auto;
+      }
+    }
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    .nav-item {
+      margin: 10px 0;
+      list-style: none;
+
+      .nav-button {
+        display: flex;
+        width: 100%;
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: var(--on-primary);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 3px;
+        transition: 0.5s;
+
+        &:hover {
+          background-color: var(--background);
+        }
+
+        .icon-wrap {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 40px;
+
+          .icon-title {
+            margin-left: 20px;
+          }
+        }
+      }
+
+      .active {
+        background-color: var(--background);
+      }
+    }
+  }
+}
+
+.nav-bar-compact {
+  width: 70px;
+  align-items: center;
+  padding-top: 15px;
+
+  .logo-holder {
+    margin: 0 5px 30px;
+
+    a {
+      width: auto;
+    }
+  }
+
+  .nav {
+    width: 100%;
+    align-items: center;
+
+    .nav-item {
+      width: 100%;
+      margin: 10px 0;
+
+      .nav-button {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      &:first-child {
+        &:first-child .icon-wrap {
+          margin-left: 5px;
+        }
+      }
+
+      .icon-title {
+        display: none;
+      }
+    }
+  }
+}
+
+.check-btn {
+  font-size: 30px;
+  color: var(--on-primary);
+  cursor: pointer;
+  display: none;
+  margin: 10px;
+
+  .icon-ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    user-select: none;
+    width: 50px;
+
+    .line {
+      fill: none;
+      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      stroke: var(--on-primary);
+      stroke-width: 5.5;
+      stroke-linecap: round;
+    }
+
+    .top {
+      stroke-dasharray: 40, 160;
+    }
+
+    .middle {
+      stroke-dasharray: 40, 142;
+      transform-origin: 50%;
+      transition: transform 400ms;
+    }
+
+    .bottom {
+      stroke-dasharray: 40, 85;
+      transform-origin: 50%;
+      transition: transform 400ms, stroke-dashoffset 400ms;
+    }
+  }
+
+  .active {
+    transform: rotate(45deg);
+
+    .top {
+      stroke-dashoffset: -64px;
+    }
+
+    .middle {
+      transform: rotate(90deg);
+    }
+
+    .bottom {
+      stroke-dashoffset: -64px;
+    }
+  }
+
+  .hamburger-holder {
+    background-color: var(--primary);
+    box-shadow: 0 0 5px 5px var(--shadow-primary);
+    opacity: 80%;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.toggle-container {
+  z-index: 3;
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+}
+
+.switch-container {
+  display: block;
+  width: 45px;
+  position: absolute;
+  bottom: 3px;
+}
+
+.normal-mode-switch {
+  right: 20px;
+}
+
+.compact-theme-toggle {
+  right: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  .top-nav {
+    margin-left: 200px;
+  }
+
+  .nav-bar {
+    width: 200px;
+  }
+
+  .nav-bar-compact {
+    width: 70px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-bar {
+    left: -100%;
+  }
+
+  .check-btn {
+    z-index: 2;
+    opacity: 1;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  .nav-bar {
+    &:active {
+      left: 0;
+    }
+  }
+
+  #check {
+    &:checked {
+      ~ {
+        .nav-bar,
+        .toggle-container {
+          left: 0;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .check-btn {
+    .icon-ham {
+      width: 40px;
+    }
+  }
+}

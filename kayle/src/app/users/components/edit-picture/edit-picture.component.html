@@ -1,0 +1,47 @@
+<section class="auth-section">
+  <h1 class="auth-title">Change Avatar</h1>
+
+  <div class="form-holder">
+    <div class="image-holder">
+      <img
+        class="image"
+        *ngIf="!url"
+        src="./assets/images/No_picture_available.png"
+        alt="Default image"
+      />
+      <img *ngIf="url" class="avatar" [src]="url" alt="Avatar" />
+    </div>
+    <form class="form image-form" [formGroup]="changeAvatarForm" (ngSubmit)="onSubmit()">
+
+      <div class="image-input">
+        <label class="label" for="avatar">Choose Image:</label>
+        <input
+          class="edit-input-box"
+          type="file"
+          name="avatar"
+          id="avatar"
+          formControlName="avatar"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+      <div
+        class="image-error"
+        *ngIf="avatar.errors?.extensions !== null && avatar.dirty && !avatar.errors?.required"
+      >
+        Only jpeg, jpg or png files!
+      </div>
+
+      <div class="button-holder">
+        <button
+          class="button"
+          type="submit"
+          [disabled]="changeAvatarForm.invalid"
+          [ngClass]="{ 'button-disable': changeAvatarForm.invalid }"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+

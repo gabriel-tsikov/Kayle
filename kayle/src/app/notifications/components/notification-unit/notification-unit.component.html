@@ -1,0 +1,30 @@
+<div
+  class="notification-container"
+  [ngClass]="{ unread: shouldShowAsUnread }"
+  (click)="readNotification(notification.id)"
+>
+  <app-avatar
+    [avatar]="notification.notificationAuthor.avatar"
+    [width]="30"
+    [height]="30"
+    [username]="notification.notificationAuthor.username"
+  ></app-avatar>
+
+  <p>
+    <span
+      (click)="goToUserPage()"
+      class="bold pointer"
+    >{{notification.notificationAuthor.username}}</span>
+    {{ message }}
+    <span
+      *ngIf="notification.type !== 'follow'"
+      (click)="goToPost()"
+      class="action-text faded"
+    >view</span
+    >
+  </p>
+
+  <div *ngIf="notification.post?.image.directLink" class="post-pic pointer">
+    <img (click)="goToPost()" src="{{notification.post?.image.directLink}}" alt="Post image" />
+  </div>
+</div>

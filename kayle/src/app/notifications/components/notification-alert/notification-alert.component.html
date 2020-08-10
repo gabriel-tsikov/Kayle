@@ -1,0 +1,8 @@
+<div class="notification-container">
+  <div *ngFor="let notification of notifications | slice: 0:3">
+    <div class="notification-box">
+      <p>{{message}}</p>
+      <span class="close-notification" (click)="readNotification(notification.id)">&times;</span>
+    </div>
+  </div>
+</div>

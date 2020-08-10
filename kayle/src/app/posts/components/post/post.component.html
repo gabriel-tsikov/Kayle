@@ -1,0 +1,101 @@
+<div class="post-holder" *ngIf="post">
+  <div class="author">
+    <app-avatar
+      [username]="authorUsername"
+      [width]="50"
+      [height]="50"
+      [avatar]="authorAvatar"
+    ></app-avatar>
+
+    <div>
+      <div class="bold">
+        {{ post.author.username }}
+      </div>
+      <div class="faded">
+        {{ post.location }}
+      </div>
+    </div>
+  </div>
+
+  <div class="dotted-container" *ngIf="isPostMine">
+    <button class="dots-trigger">
+      <img
+        class="icon"
+        src="./assets/images/dotted-menu.svg"
+        alt="dotted menu"
+      />
+    </button>
+    <div class="dotted-menu">
+      <ul>
+        <li>
+          <a (click)="openEditPostModal()">Edit</a>
+        </li>
+        <li>
+          <a (click)="deletePost()">Delete</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <a [routerLink]="['/post', post.id]" class="post-image">
+    <img src="{{ post.image.directLink }}" alt="Post image" />
+  </a>
+
+  <div class="under-picture">
+    <div>
+      <p>{{ post.description | unescape }}</p>
+    </div>
+    <div class="post-stat">
+      <app-like-button title="like" [isLiked]="isLiked" [postId]="post.id"></app-like-button>
+      <p class="bold pointer" (click)="triggerLikeList()">
+        {{ post.likesCount }} likes
+      </p>
+      <div class="like-list" *ngIf="shouldShowLikeList">
+        <div class="like-unit" *ngFor="let like of post.likes | slice: 0:20">
+          <app-avatar
+            class="avatar"
+            [width]="30"
+            [height]="30"
+            [avatar]="like.votedBy.avatar"
+            [username]="like.votedBy.username"
+          ></app-avatar>
+          <p class="pointer" (click)="goToUsersPage(like.votedBy.username)">
+            {{ like.votedBy.username }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let comment of post.comments | slice: 0:commentSliceEnd">
+    <app-comments
+      class="comments-container"
+      [loggedUsername]="loggedUsername"
+      [comment]="comment"
+      [postId]="post.id"
+    ></app-comments>
+  </div>
+
+  <div class="toggle-more-comments">
+    <div
+      *ngIf="post.comments?.length > commentSliceEnd"
+      (click)="showMorePosts()"
+      class="action-text faded"
+    >
+      View more comments
+    </div>
+    <div
+      *ngIf="commentSliceEnd > commentSliceEndBase"
+      (click)="showLessPosts()"
+      class="action-text faded"
+    >
+      View less comments
+    </div>
+  </div>
+
+  <app-comment-form
+    *ngIf="loggedUsername !== null"
+    class="comments-container"
+    [postId]="post.id"
+  ></app-comment-form>
+</div>

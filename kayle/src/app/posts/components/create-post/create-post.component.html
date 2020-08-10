@@ -1,0 +1,100 @@
+<section class="auth-section">
+  <h1 class="auth-title">Create Post</h1>
+
+  <div class="form-holder">
+    <div class="image-holder">
+      <img
+        class="image"
+        *ngIf="!url"
+        src="./assets/images/No_picture_available.png"
+        alt="Default image"
+      />
+      <img *ngIf="url" class="image" [src]="url" alt="Post image" />
+    </div>
+    <form
+      class="form image-form"
+      [formGroup]="createPostForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="image-input">
+        <label class="label" for="image">Choose Image:</label>
+        <input
+          class="edit-input-box"
+          type="file"
+          name="image"
+          id="image"
+          formControlName="image"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+      <div
+        class="image-error"
+        *ngIf="
+          image.errors?.extensions !== null &&
+          image.dirty &&
+          !image.errors?.required
+        "
+      >
+        Only jpeg, jpg or png files!
+      </div>
+
+      <div class="input-holder">
+        <label class="label" for="description">Description:</label>
+        <input
+          formControlName="description"
+          class="edit-input-box"
+          type="text"
+          name="description"
+          id="description"
+          autocomplete="off"
+        />
+      </div>
+      <div class="input-holder">
+        <label class="label" for="location">Location:</label>
+        <input
+          formControlName="location"
+          class="edit-input-box"
+          type="text"
+          name="location"
+          id="location"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="select">
+        <label class="label">Visibility:</label>
+        <ul class="select-holder">
+          <li class="select-item">
+            <input
+              formControlName="isPublic"
+              type="radio"
+              name="isPublic"
+              value="true"
+            />
+            <span class="radio-title">Public</span>
+          </li>
+          <li class="select-item">
+            <input
+              formControlName="isPublic"
+              type="radio"
+              name="isPublic"
+              value="false"
+            />
+            <span class="radio-title">Private</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="button-holder">
+        <button
+          class="button"
+          type="submit"
+          [disabled]="createPostForm.invalid"
+          [ngClass]="{ 'button-disable': createPostForm.invalid }"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

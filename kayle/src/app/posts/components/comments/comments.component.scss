@@ -1,0 +1,26 @@
+.comment-info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .author {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+
+    & > span {
+      margin: 0 5px;
+    }
+  }
+}
+
+.action-text {
+  color: var(--secondary);
+  font-style: italic;
+  cursor: pointer;
+
+  &:hover {
+    text-shadow: 1px 2px var(--shadow-primary);
+  }
+}

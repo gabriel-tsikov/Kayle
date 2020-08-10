@@ -1,0 +1,35 @@
+<section class="search-holder">
+  <div
+    class="search-form-holder"
+    [ngClass]="{ 'compact-mode': shouldSwitchToCompactMode }"
+  >
+    <form [formGroup]="searchForm" class="search-form">
+      <input
+        #searchField
+        (ngModelChange)="onSearchInputChange($event)"
+        [ngClass]="{'loading': shouldShowSpinner}"
+        formControlName="search"
+        name="search"
+        class="search-input"
+        type="text"
+        placeholder="Search"
+        autocomplete="off"
+      />
+      <div class="search-button">
+        <img src="./assets/images/search.svg" alt="A small search button" />
+      </div>
+    </form>
+
+    <app-search-results
+      class="search-results"
+      *ngIf="!shouldHideResults"
+      [searchResults]="searchResults"
+      [noResultsFound]="noResultsFound"
+    ></app-search-results>
+
+    <app-notification-bell
+      *ngIf="isUserLogged$ | async"
+      class="bell-position"
+    ></app-notification-bell>
+  </div>
+</section>

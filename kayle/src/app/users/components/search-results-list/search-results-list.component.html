@@ -1,0 +1,22 @@
+<div class="search-results-holder" *ngIf="searchResults?.length || noResultsFound">
+  <div class="arrow-container" [ngClass]="{'background-hover':shouldAddClass}"></div>
+
+  <div class="results-holder">
+    <app-search-result
+      class="search-result"
+      *ngFor="let searchResult of searchResults; let i = index"
+      (shouldAddClass)="shouldAddClass = $event"
+      [searchResult]="searchResult"
+      [index]="i"
+    ></app-search-result>
+
+    <app-search-result
+      class="search-result"
+      (shouldAddClass)="shouldAddClass = $event"
+      [noResultsFound]="noResultsFound"
+      [index]="0"
+    ></app-search-result>
+  </div>
+
+</div>
+

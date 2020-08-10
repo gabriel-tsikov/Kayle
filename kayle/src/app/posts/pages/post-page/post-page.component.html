@@ -1,0 +1,10 @@
+<div class="post-container">
+  <app-post
+    *ngIf="post"
+    [loggedUsername]="loggedUsername$ | async"
+    [post]="post"
+    [isInSinglePostPage]="true"
+  ></app-post>
+
+  <div *ngIf="isPostNonExisting">Oops, a post with this ID doesn't exist.</div>
+</div>

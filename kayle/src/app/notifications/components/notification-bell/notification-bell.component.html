@@ -1,0 +1,31 @@
+<div
+  class="notification-bell-holder"
+>
+  <button class="bell" (click)="toggleNotifications($event)">
+    <img class="icon" src="./assets/images/bell.svg" alt="Bell" />
+    <span class="counter">{{ notifications | filterUnread }}</span>
+  </button>
+
+  <div class="notification-list" *ngIf="shouldShowNotifications">
+    <ng-template [ngIf]="!isLoading">
+      <app-notification-unit
+        *ngFor="let notification of notifications"
+        [notification]="notification"
+        (markAsRead)="readNotification($event)"
+      >
+      </app-notification-unit>
+      <p *ngIf="notifications.length === 0" class="faded empty">It is empty in here</p>
+    </ng-template>
+
+    <div *ngIf="isLoading" class="container-loader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>

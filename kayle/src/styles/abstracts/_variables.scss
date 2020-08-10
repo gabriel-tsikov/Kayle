@@ -1,0 +1,31 @@
+// TYPOGRAPHY
+
+$base-font-size: 16px;
+$base-line-height: 1.25 * $base-font-size;
+
+$text-settings: (
+  'xs': (
+    font-size: 12px,
+    line-height: $base-line-height,
+  ),
+  'sm': (
+    font-size: 14px,
+    line-height: $base-line-height,
+  ),
+  'base': (
+    font-size: 16px,
+    line-height: $base-line-height,
+  ),
+  'md': (
+    font-size: 18px,
+    line-height: $base-line-height * 1.3,
+  ),
+  'lg': (
+    font-size: 20px,
+    line-height: $base-line-height * 1.5,
+  ),
+  'xl': (
+    font-size: 30px,
+    line-height: $base-line-height * 2,
+  ),
+);

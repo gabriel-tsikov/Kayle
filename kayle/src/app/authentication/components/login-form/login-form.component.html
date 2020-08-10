@@ -1,0 +1,75 @@
+<section class="auth-section">
+  <h1 *ngIf="shouldShowLoginForm" class="auth-title">Login</h1>
+  <h1 *ngIf="!shouldShowLoginForm" class="auth-title">Login as:</h1>
+
+  <div *ngIf="!shouldShowLoginForm" class="avatar-holder">
+    <a (click)="loginWithSavedUser()">
+      <app-avatar
+        [avatar]="lastLoggedUser.avatar"
+        [width]="120"
+        [height]="120"
+        [disableClick]="true"
+      ></app-avatar>
+    </a>
+
+    <p class="action-text-holder">Not you?
+      <a class="action-text" (click)="differentUserLogin()" title="Log in">Log in</a>
+      with different account
+    </p>
+  </div>
+
+  <div class="form-holder" *ngIf="shouldShowLoginForm">
+    <form
+      class="form"
+      [formGroup]="loginForm"
+      (ngSubmit)="loginSubmit()"
+    >
+      <div class="input-holder">
+        <label class="label" for="username">Username:</label>
+        <input
+          autocomplete="off"
+          class="input-box"
+          type="text"
+          name="username"
+          id="username"
+          formControlName="username"
+          required
+          placeholder=" "
+          [ngClass]="{'invalid-input': username.errors && username.touched}"
+          (ngModelChange)="errorMessage = ''"
+        />
+      </div>
+
+      <div class="input-holder">
+        <label class="label" for="password">Password:</label>
+        <input
+          #passwordRef
+          class="input-box"
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+          required
+          placeholder=" "
+          [ngClass]="{'invalid-input': password.errors && password.touched}"
+          (ngModelChange)="errorMessage = ''"
+        />
+      </div>
+
+      <div class="error-response">
+        {{errorMessage}}
+      </div>
+
+      <div class="button-holder">
+        <button
+          class="button"
+          type="submit"
+          [disabled]="loginForm.invalid"
+          [ngClass]="{'button-disable': loginForm.invalid}"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

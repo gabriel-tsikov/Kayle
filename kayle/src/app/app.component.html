@@ -1,0 +1,15 @@
+<header appTheme>
+  <app-nav-bar></app-nav-bar>
+</header>
+
+<main appTheme class="main-container">
+  <div class="submain-container" [ngClass]="{'compact-mode': shouldSwitchToCompactMode}">
+    <app-search-user></app-search-user>
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<app-notification-alert appTheme></app-notification-alert>
+<app-loader></app-loader>
+<app-alert appTheme></app-alert>
+<app-modal appTheme></app-modal>

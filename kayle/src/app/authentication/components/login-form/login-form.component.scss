@@ -1,0 +1,23 @@
+.auth-section {
+  .avatar-holder {
+    margin: 30px auto 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+    .action-text-holder {
+      margin-top: 20px;
+    }
+
+    img {
+      margin: 0;
+      transform: translateZ(0) scale(1, 1);
+      backface-visibility: hidden;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

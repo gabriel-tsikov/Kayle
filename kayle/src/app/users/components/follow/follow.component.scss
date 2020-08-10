@@ -1,0 +1,15 @@
+.follower-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+
+  .avatar-holder {
+    max-width: 60%;
+    word-break: break-word;
+
+    & :first-child {
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.unify {
+  position: relative;
+
+  .comment-form-holder {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    position: relative;
+
+    .comment-avatar {
+      margin-right: 10px;
+    }
+
+    .combine {
+      width: 100%;
+      border: 1px solid var(--border-primary);
+
+      .emoji-button {
+        border-radius: 0;
+      }
+
+      .error {
+        position: absolute;
+        background-color: var(--error);
+        color: var(--on-error);
+        padding: 2px;
+        top: -25px;
+        right: 0;
+      }
+
+      .comment-input {
+        flex: 1;
+        border: none;
+        padding: 5px;
+        border-radius: 5px 0 0 5px;
+        min-height: fit-content;
+        height: auto;
+        resize: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        border: none;
+        background-color: var(--primary-faded);
+        color: var(--secondary);
+        border-radius: 0 5px 5px 0;
+        padding-right: 10px;
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

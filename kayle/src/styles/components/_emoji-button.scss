@@ -1,0 +1,24 @@
+.emoji-button {
+  border: none;
+  background-color: var(--primary-faded);
+  color: var(--secondary);
+  border-radius: 0 5px 5px 0;
+  padding-right: 10px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.picker {
+  width: 300px;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+}

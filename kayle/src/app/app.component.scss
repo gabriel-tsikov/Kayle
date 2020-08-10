@@ -1,0 +1,9 @@
+.compact-mode {
+    margin-left: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+  .compact-mode {
+    margin-left: 0;
+  }
+}

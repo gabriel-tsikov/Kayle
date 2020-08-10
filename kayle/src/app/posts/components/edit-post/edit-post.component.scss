@@ -1,0 +1,48 @@
+.edit-status-container {
+  margin-bottom: 10px;
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+
+  .edit-status-list {
+    .edit-status-option {
+      margin: 5px 0;
+
+      .edit-status-button {
+        display: flex;
+        padding: 0 10px;
+
+        .checkmark-container {
+          width: 28px;
+          margin-right: 10px;
+        }
+
+        .button-header-container {
+          display: flex;
+          align-items: center;
+
+          p {
+            font-size: 17px;
+          }
+
+          .icon {
+            width: 17px;
+            margin-left: 5px;
+          }
+        }
+
+        &:hover {
+          background-color: var(--background);
+        }
+
+        .status-explanation-container {
+          font-size: 15px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

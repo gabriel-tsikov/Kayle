@@ -1,0 +1,10 @@
+<a (click)="openUserProfile()" class="avatar-holder" title="{{username}}">
+  <div class="avatar" [ngStyle]="{'width.px': width, 'height.px': height}">
+    <img
+      src="{{getAvatar()}}"
+      (error)="onImageError($event)"
+      alt="User image"
+    />
+  </div>
+</a>
+

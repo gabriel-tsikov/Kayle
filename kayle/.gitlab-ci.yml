@@ -1,0 +1,42 @@
+stages:
+  - test
+  - build
+  - deploy
+test:eslint:
+  image: node:8
+  stage: test
+  script:
+    - npm install
+    - npm run test:eslint
+  only:
+    - master
+    - testing
+test:node:8:
+  image: node:8
+  stage: test
+  script:
+    - npm install
+    - npm run test
+  only:
+    - master
+    - testing
+build:
+  image: node:8
+  stage: build
+  artifacts:
+    paths:
+      - build/
+    scripts:
+      - npm run build
+    only:
+      - master
+deploy:
+  stage: deploy
+  image: microsoft/azure-cli
+  dependencies:
+    - build
+  script:
+    - az storage blob delete-batch -s "\$web" --connection-string $AZURE_STORAGE_CONNECTION_STRING
+    - az storage blob upload-batch -d "\$web" -s build --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  only:
+    - master

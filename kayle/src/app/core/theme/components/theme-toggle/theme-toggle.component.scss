@@ -1,0 +1,60 @@
+.switch {
+  position: relative;
+  bottom: 2%;
+  right: 2%;
+  display: flex;
+  width: 60px;
+  height: 27px;
+
+  input {
+    opacity: 0;
+
+    &:checked {
+      + .slider {
+        background-color: var(--purple);
+      }
+
+      + .slider:before {
+        transform: translateX(34px);
+        background: var(--white) url('../../../../../assets/images/sunny.png');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--white);
+    transition: 0.4s;
+
+    &:before {
+      position: absolute;
+      content: '';
+      height: 30px;
+      width: 30px;
+      left: -1px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      transition: 0.4s;
+      box-shadow: 0 0 15px 2px var(--glow);
+      background: var(--purple) url('../../../../../assets/images/night.png');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.round {
+      border-radius: 34px;
+
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}

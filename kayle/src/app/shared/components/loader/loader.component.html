@@ -1,0 +1,20 @@
+<div
+  *ngIf="loaderState.shouldShow"
+  class="div-disable div-disable-loader"
+>
+  <div
+    class="container-loader"
+    [ngClass]="{'compact-sidenav-mode': isInCompactMode && shouldSwitchToCustomMode,
+    'normal-sidenav-mode': !isInCompactMode && shouldSwitchToCustomMode}"
+  >
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+  </div>
+</div>
+

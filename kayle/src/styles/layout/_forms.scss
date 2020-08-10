@@ -1,0 +1,208 @@
+.form-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  .form {
+    width: 100%;
+
+    .input-holder,
+    .image-input {
+      display: flex;
+      flex-direction: column;
+
+      .input-box,
+      .edit-input-box {
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid var(--border-primary);
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .edit-input-box {
+        padding: 12px;
+      }
+    }
+
+    .image-error {
+      color: var(--error);
+    }
+
+    .select {
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+      .select-holder {
+        .select-item {
+          display: inline-block;
+          margin-right: 15px;
+          color: var(--on-primary);
+
+          .radio-title {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+
+    .button-holder {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+}
+
+.auth-section {
+  .auth-title {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .image-holder {
+    max-width: 700px;
+    height: fit-content;
+    margin-right: 20px;
+    .image {
+      width: 100%;
+    }
+  }
+
+  .input-holder {
+    margin-top: 15px;
+    position: relative;
+
+    .label {
+      padding: 5px;
+      color: var(--on-primary);
+    }
+
+    .input-box {
+      width: 100%;
+      border: 1px solid var(--border-primary);
+      padding-left: 40px;
+      border-radius: 7px;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:valid.ng-valid {
+        background: var(--primary-faded) url("/../../assets/images/check.svg")
+          no-repeat 10px;
+        background-size: 20px;
+      }
+    }
+
+    .edit-input-box {
+      width: 100%;
+      border: 1px solid var(--border-primary);
+      padding-left: 10px;
+      border-radius: 7px;
+    }
+
+    .error {
+      position: absolute;
+      top: 90px;
+      background: var(--error);
+      border-radius: 5px;
+      z-index: 1;
+
+      .error-item {
+        padding: 8px;
+        line-height: 22px;
+        font-size: 14px;
+        color: hsl(0, 0%, 100%);
+      }
+    }
+
+    .triangle {
+      line-height: 8px;
+
+      .svg-triangle {
+        position: absolute;
+        margin-left: 5px;
+        width: 30px;
+        height: 20px;
+        fill: var(--error);
+        stroke: var(--error);
+      }
+
+      .svg-triangle polygon {
+        fill: var(--error);
+        stroke: var(--error);
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .invalid-input {
+      background: var(--primary-faded) url("/../../assets/images/download.png")
+        no-repeat 8px;
+      background-size: 23px;
+    }
+
+    .label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--on-primary);
+    }
+  }
+
+  .button-holder {
+    .button {
+      width: 120px;
+    }
+  }
+}
+
+.label {
+  padding: 5px;
+  color: var(--on-primary);
+}
+
+.auth-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .auth-section {
+    .form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .image-holder {
+        max-width: 400px;
+        max-height: 90%;
+        align-self: center;
+        margin-right: 0;
+
+        .image {
+          width: 100%;
+        }
+      }
+      .input-holder {
+        margin-top: 10px;
+        .input-box {
+          .edit-input-box {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+.search-holder {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary);
+  box-shadow: 0 1px 5px 3px var(--border-primary);
+  z-index: 1;
+
+  .search-form-holder {
+    width: 400px;
+    margin-left: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+
+    .search-form {
+      width: 100%;
+      display: flex;
+      margin: 15px 0;
+      align-items: center;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      .search-input {
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        background-color: var(--background-secondary);
+        border: none;
+        color: var(--on-background-secondary);
+
+        &:focus {
+          outline: 0;
+        }
+
+        &::placeholder {
+          color: var(--on-background-secondary);
+        }
+      }
+
+      .search-button {
+        height: 40px;
+        padding-right: 5px;
+        border: 0;
+        background-color: var(--background-secondary);
+        cursor: text;
+
+        &:focus {
+          outline: none;
+        }
+
+        img {
+          width: 26px;
+        }
+      }
+    }
+
+    .search-results {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .bell-position {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .compact-mode {
+    margin-left: 70px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .search-holder {
+    .search-form-holder {
+      margin-left: 200px;
+    }
+
+    .compact-mode {
+      margin-left: 70px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search-holder {
+    .search-form-holder {
+      margin: 0 110px 0 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .search-holder {
+    height: 60px;
+
+    .search-form-holder {
+      align-items: initial;
+
+      .search-form {
+        margin: 12px 70px 12px 0;
+
+        .search-input {
+          height: 36px;
+        }
+
+        .search-button {
+          height: 36px;
+
+          img {
+            width: 22px;
+          }
+        }
+      }
+    }
+  }
+}

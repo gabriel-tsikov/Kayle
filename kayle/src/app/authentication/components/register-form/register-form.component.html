@@ -1,0 +1,151 @@
+<section class="auth-section">
+  <h1 class="auth-title">Register</h1>
+
+  <div class="form-holder">
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+      <div class="input-holder">
+        <label class="label" for="username">Username:</label>
+        <input
+          class="input-box"
+          type="text"
+          name="username"
+          id="username"
+          formControlName="username"
+          required
+          autocomplete="off"
+          [ngClass]="{ 'invalid-input': username.errors && username.touched }"
+          (ngModelChange)="errorMessage = ''"
+        />
+
+        <div *ngIf="username.touched && username.invalid">
+          <div class="triangle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="svg-triangle"
+            >
+              <polygon points="0,30 15,0 30,30" />
+            </svg>
+          </div>
+          <div class="error">
+            <p class="error-item">
+              Username must be at least 2 characters!
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="input-holder">
+        <label class="label" for="email">Email:</label>
+        <input
+          class="input-box"
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          required
+          autocomplete="off"
+          [ngClass]="{ 'invalid-input': email.errors && email.touched }"
+          (ngModelChange)="errorMessage = ''"
+        />
+
+        <div *ngIf="email.touched && email.invalid">
+          <div class="triangle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="svg-triangle"
+            >
+              <polygon points="0,30 15,0 30,30" />
+            </svg>
+          </div>
+          <div class="error">
+            <p class="error-item">
+              Enter valid email!
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="input-holder">
+        <label class="label" for="password">Password:</label>
+        <input
+          class="input-box"
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+          required
+          [ngClass]="{ 'invalid-input': password.errors && password.touched }"
+          (ngModelChange)="errorMessage = ''"
+        />
+        <div *ngIf="password.touched && password.invalid">
+          <div class="triangle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="svg-triangle"
+            >
+              <polygon points="0,30 15,0 30,30" />
+            </svg>
+          </div>
+          <div class="error">
+            <p class="error-item">
+              Password must be at least 8 characters, 1 uppercase letter, 1
+              lowercase and at least one digit!
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="input-holder">
+        <label class="label" for="confirmPassword">Confirm password:</label>
+        <input
+          class="input-box"
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          required
+          [ngClass]="{
+            'invalid-input': confirmPassword.errors && confirmPassword.touched
+          }"
+          (ngModelChange)="errorMessage = ''"
+        />
+
+        <div *ngIf="confirmPassword.errors && confirmPassword.touched">
+          <div class="triangle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="svg-triangle"
+            >
+              <polygon points="0,30 15,0 30,30" />
+            </svg>
+          </div>
+          <div class="error">
+            <p
+              class="error-item"
+            >
+              Passwords does not match!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-response">
+        {{ errorMessage }}
+      </div>
+
+      <div class="button-holder">
+        <button
+          class="button"
+          type="submit"
+          [disabled]="registerForm.invalid"
+          [ngClass]="{ 'button-disable': registerForm.invalid }"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

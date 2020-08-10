@@ -1,0 +1,73 @@
+h1 {
+  color: var(--on-primary);
+  line-height: line-height('md');
+}
+
+h2 {
+  color: var(--on-primary);
+  line-height: line-height('md');
+}
+
+p {
+  color: var(--on-primary);
+  @include text-setting('md');
+}
+
+
+// Media Queries
+
+@media screen and (min-width: 300px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 17px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 19px;
+  }
+}

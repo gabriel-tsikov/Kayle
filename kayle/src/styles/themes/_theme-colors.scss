@@ -1,0 +1,53 @@
+.dark-theme {
+  --background: hsl(263, 9%, 18%);
+  --on-background: hsla(0, 0%, 100%, 0.801);
+  --background-secondary: hsla(0, 29%, 95%, 0.863);
+  --on-background-secondary: hsl(257, 10%, 28%);
+  --primary: hsl(257, 10%, 28%);
+  --on-primary: hsla(0, 29%, 95%, 0.863);
+  --border-primary: hsla(0, 0%, 20%, 0.80);
+  --shadow-primary: hsla(0, 0%, 80%, 0.10);
+  --secondary: hsl(264, 36%, 71%);
+  --on-secondary: hsla(0, 0%, 100%, 0.883);
+  --border-secondary: hsla(0, 0%, 20%, 0.80);
+  --shadow-secondary: hsla(0, 0%, 80%, 0.10);
+  --surface: hsl(0, 0%, 100%);
+  --on-surface: hsl(0, 0%, 6%);
+  --error: hsla(7, 81%, 60%, 0.911);
+  --on-error: hsl(0, 0%, 100%, 0.8);
+  --warning: hsl(40, 91%, 61%);
+  --on-warning: hsl(0, 0%, 100%, 0.8);
+  --success: hsla(112, 40%, 56%, 0.811);
+  --on-success: hsla(0, 0%, 100%, 0.8);
+  --purple: hsl(263, 29%, 30%);
+  --white: hsla(0, 0%, 100%, 0.89);
+  --glow: hsla(251, 54%, 92%, 0.8);
+  --disabled: hsla(0, 0%, 80%, 0.60);
+  --hover: hsla(0, 0%, 13%, 0.96);
+}
+
+.light-theme {
+  --background: hsl(0, 0%, 92%);
+  --on-background: hsla(0, 0%, 6%, 0.80);
+  --background-secondary: hsl(0, 0%, 91%);;
+  --on-background-secondary: hsla(0, 0%, 13%, 0.96);
+  --primary: hsl(0, 0%, 98%);
+  --on-primary: hsla(0, 1%, 14%, 0.80);
+  --border-primary: hsla(0, 0%, 80%, 0.80);
+  --shadow-primary: hsla(0, 0%, 80%, 0.60);
+  --secondary: hsl(263, 29%, 40%);
+  --on-secondary: hsla(0, 0%, 100%, 0.80);
+  --border-secondary: hsla(261, 46%, 25%, 0.6);
+  --shadow-secondary: hsla(0, 0%, 80%, 0.60);
+  --error: hsl(7, 81%, 60%);
+  --on-error: hsla(0, 0%, 100%, 0.8);
+  --warning: hsl(40, 91%, 61%);
+  --on-warning: hsla(0, 0%, 100%, 0.8);
+  --success: hsla(118, 63%, 80%, 0.911);
+  --on-success: hsla(0, 0%, 100%, 0.8);
+  --purple: hsl(263, 29%, 30%);
+  --white: hsla(0, 0%, 100%, 0.98);
+  --glow: hsla(40, 38%, 94%, 0.842);
+  --disabled: hsla(0, 0%, 80%, 0.60);
+  --hover: hsl(0, 0%, 80%);
+}
